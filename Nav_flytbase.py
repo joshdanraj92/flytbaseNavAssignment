@@ -1,15 +1,15 @@
 import time
 from flyt_python import API
-drone = API.navigation(timeout=120000)
+drone = API.navigation()
 time.sleep(3)
-print("taking off upto 5m altitude")
+print("Move in traj_square with side = 6.5 ")
 drone.arm()
 drone.take_off(5.0)
 print("XYZ set points")
-drone.position_set(6.5, 0, -5, relative=True)
-drone.position_set(6.5, 6.5, -5, relative=True)
-drone.position_set(0, 6.5, -5, relative=True)
-drone.position_set(0, 0, -5, relative=True)
+drone.set_local_position(6.5, 0, 0, body_frame=True)
+drone.set_local_position(0, 6.5, 0, body_frame=True)
+drone.set_local_position(-6.5, 0, 0, body_frame=True)
+drone.set_local_position(0, -6.5, 0, body_frame=True)
 
 print("Landing now")
 drone.land()

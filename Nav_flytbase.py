@@ -1,6 +1,6 @@
 import time
-from flyt_python import API
-drone = API.navigation()
+from flyt_python import api
+drone = api.navigation()
 time.sleep(3)
 print("Move in traj_square with side = 6.5 ")
 drone.arm()
